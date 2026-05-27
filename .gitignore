@@ -1,5 +1,6 @@
-# Generated slide images (produced by /pdf-to-images)
+# Generated output (produced by skills)
 output/images/
+output/caption/
 
 # Python
 __pycache__/
