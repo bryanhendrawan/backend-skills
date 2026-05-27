@@ -109,3 +109,4 @@ scripts/
 | `/design-prompt YYYY-MM-DD_slug` | Generate paste-ready Claude Design prompt |
 | `/generate-topics` | Propose next batch of unique topics |
 | `/pdf-to-images YYYY-MM-DD` | Convert an exported PDF into per-slide PNGs in `output/images/` |
+| `/export-caption YYYY-MM-DD_slug` | Save caption + hashtags as plain text to `output/caption/` |
