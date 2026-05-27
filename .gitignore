@@ -1,0 +1,18 @@
+# Generated slide images (produced by /pdf-to-images)
+output/images/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+*.swp
+*.swo
