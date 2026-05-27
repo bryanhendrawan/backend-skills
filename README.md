@@ -1,0 +1,105 @@
+# Backend x AI — Content Library
+
+An ongoing content library for Indonesian backend software engineers. Central theme: *"How backend software engineers use AI in their daily work."*
+
+Each day is one topic — carousel slides for Instagram and TikTok, written in Bahasa Indonesia, aimed at practicing engineers who already code for a living.
+
+---
+
+## Prerequisites
+
+- [Claude Code CLI](https://claude.ai/code) installed (`npm install -g @anthropic-ai/claude-code` or via the desktop app)
+- An Anthropic API key configured (`ANTHROPIC_API_KEY` in your environment)
+
+---
+
+## Getting started
+
+```bash
+git clone https://github.com/bryanhendrawan/backend-skills.git
+cd backend-skills
+claude
+```
+
+That's it. Claude Code will start and automatically load the project context from `CLAUDE.md`.
+
+---
+
+## Working with the agent
+
+Once inside Claude Code, the `backend-engineer` agent handles all content work. It opens every session with a short check-in and then listens for what you need. Four common scenarios:
+
+### 1. Report a topic you just posted
+
+```
+I posted Day 1 on Instagram — https://instagram.com/p/...
+```
+
+The agent updates `topics.md` with `Status = posted` and the URL. Done.
+
+### 2. Write content for a planned topic
+
+```
+Let's write Day 8 — realistic-fixtures
+```
+
+The agent validates the topic, lays out a plan, waits for your approval, then runs the full production flow:
+
+- `/write-content` — carousel slides (Bahasa Indonesia)
+- `/write-code-sample` — runnable code in `code/` (if the topic needs it)
+- `/caption` — Instagram/TikTok caption + hashtags
+- `/design-prompt` — paste-ready prompt for Claude Design / Canva
+
+### 3. Ask for a suggestion
+
+```
+What should we work on today?
+```
+
+The agent scans `topics.md`, checks what's `draft` vs `written` vs `posted`, and suggests 2–3 options.
+
+### 4. Generate new topic ideas
+
+```
+/generate-topics
+```
+
+Proposes a batch of new unique topics, checked against everything already in `topics.md`.
+
+---
+
+## Repository structure
+
+```
+topics.md                          # Master topic index — source of truth
+days/
+  YYYY-MM-DD_topic-name.md        # One file per topic: slides + caption + design prompt
+code/
+  YYYY-MM-DD_topic-name/         # Code samples for topics that need them
+    main.go / main.py
+.claude/
+  agents/backend-engineer.md      # The agent that runs sessions
+  skills/                         # Slash commands (/write-content, /caption, etc.)
+```
+
+## Topic status
+
+`topics.md` tracks every topic with a `Status` column:
+
+| Status | Meaning |
+|--------|---------|
+| `draft` | Not written yet |
+| `written` | Slides + caption + design prompt done, not yet posted |
+| `posted` | Live on social media — `Post URL` column has the link |
+
+---
+
+## Skills reference
+
+| Skill | When to use |
+|-------|-------------|
+| `/write-content YYYY-MM-DD_slug` | Write carousel slides for a topic |
+| `/write-code-sample YYYY-MM-DD_slug` | Generate the code sample |
+| `/caption YYYY-MM-DD_slug` | Generate Indonesian caption + hashtags |
+| `/design-prompt YYYY-MM-DD_slug` | Generate paste-ready Claude Design prompt |
+| `/generate-topics` | Propose next batch of unique topics |
