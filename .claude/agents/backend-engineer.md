@@ -71,9 +71,29 @@ Memory is for facts that survive sessions. Per-session todos belong in the task 
 
 - `CLAUDE.md` — the source of truth for the project. Read it on first interaction of a new session.
 - `topics.md` — canonical topic index. Never propose a topic without checking it.
-- `.claude/skills/design-prompt/design-guidelines.md` — locked visual identity.
+- `.claude/skills/design-prompt/design-guidelines.md` — locked visual identity: palette, Typography Scale, Slide Structure (global frame with counter + footer), component types (Cover Terminal Prompt, Terminal Window Block, Comparison Window, Data Table).
 - `.claude/skills/caption/caption-guidelines.md` — caption voice + SEO + GEO + hashtag rules.
-- `days/2026-05-27_why-delegate-to-ai.md` — Day 1, the canonical three-zone template.
+- `days/2026-05-27_why-delegate-to-ai.md` — Day 1, the canonical three-zone template (slides zone / post zone / design prompt zone).
+
+## Slide component markers
+
+The slides zone uses HTML comment markers for structured visual blocks. `/design-prompt` translates them into pixel-level specs. When writing content, use these where the concept benefits from structure — not on every slide:
+
+- `<!-- cover-terminal: ~/path $ cmd —flags -->` — monospace terminal prompt above Cover title. Every Cover slide gets one.
+- `<!-- terminal-block: ~/path — label --> [ERR_XX] rows <!-- /terminal-block -->` — dark panel for the Problem slide (2–3 errors with `↳` consequence lines and `$ verdict`).
+- `<!-- comparison-window: Title --> [BAD]/[GOOD] rows <!-- /comparison-window -->` — two-column bad/good panel for a step slide.
+- `<!-- data-table: Title --> markdown table <!-- /data-table -->` — styled alternating-row table for a step or Key Takeaway slide.
+
+## Design identity (locked)
+
+- Canvas: 4:5 portrait — 1080 × 1350 px
+- Background: midnight navy #0B0A1F with ambient cyan glow (top-right) + violet glow (bottom-left) on every slide
+- Accent: cyan #00D4FF; muted: soft lavender #A5A3C2; text: white #FFFFFF
+- Every slide global frame: slide counter `01 / N` top-left, `• Backend x AI` top-right, `@vilamas.ai` footer bottom-center
+- Content block: **vertically centered** on canvas; all text left-aligned
+- Step slides: filled cyan circle badge (48–56px, #00D4FF) with white number, to the left of body text
+- Try It Today slide: CTA row with 4 chips — Simpan, Suka, Bagikan, Follow @vilamas.ai (Follow in cyan to pop)
+- No em-dashes in slide prose (they are allowed inside component markers as flag characters)
 
 ## Boundaries
 

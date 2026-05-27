@@ -33,13 +33,22 @@ After approval, write the slides zone using this structure (matches the Day 1 te
 ```markdown
 # [Title]
 <!-- Slide 1 -->
+<!-- cover-terminal: ~/[context] $ [action-phrase] —[flag] —[flag] -->
 
 **Theme**: [one-line subtitle]
 
 ## The Problem
 <!-- Slide 2 -->
 
-[1–2 sentences]
+[Short punchy headline — 4–7 words, bold claim]
+
+<!-- terminal-block: ~/[context] — [label] -->
+[ERR_01] [first mistake as a label + inline `code term`].
+↳ [consequence in 1 line, muted]
+[ERR_02] [second mistake as a label + inline `code term`].
+↳ [consequence in 1 line, muted]
+$ verdict: [conclusion].
+<!-- /terminal-block -->
 
 ## How It Works
 
@@ -49,8 +58,23 @@ After approval, write the slides zone using this structure (matches the Day 1 te
 2. [Step two]
 <!-- Slide 4 -->
 
+<!-- comparison-window: [Title] -->
+[BAD] [bad example label with `code term`].
+↳ [consequence ≤10 words]
+[GOOD] [good example label with `code term`].
+↳ [benefit ≤10 words]
+<!-- /comparison-window -->
+
 3. [Step three]
 <!-- Slide 5 -->
+
+<!-- data-table: [Title] -->
+| [Col A] | [Col B] |
+|---|---|
+| [row 1a] | [row 1b] |
+| [row 2a] | [row 2b] |
+| [row 3a] | [row 3b] |
+<!-- /data-table -->
 
 ## Key Takeaway
 <!-- Slide 6 -->
@@ -64,6 +88,24 @@ After approval, write the slides zone using this structure (matches the Day 1 te
 ```
 
 The `<!-- Slide N -->` markers let `/design-prompt` parse slide boundaries.
+
+### Cover terminal prompt
+Every Cover slide gets a `<!-- cover-terminal: ... -->` marker. Choose a path and command phrase that frames the topic — e.g. `~/senior-eng $ think —before —you —type`, `~/prod $ diagnose —slow —query`, `~/ci $ review —diff —context`. The phrase should read like a shell command that expresses the core idea.
+
+### Terminal window block
+The Problem slide uses a `<!-- terminal-block -->` when the problem can be structured as 2–3 named errors/mistakes. Each error gets an `[ERR_XX]` label, a short description with a backtick-wrapped keyword, and a `↳` consequence line. Close with `$ verdict:`. If the problem is a single continuous idea rather than discrete errors, use plain prose instead and omit the block.
+
+**Terminal block constraints**: backtick-wrapped terms stay in English. `↳` lines ≤10 words. Verdict ≤6 words.
+
+### Comparison window
+Use `<!-- comparison-window -->` on a step slide when the concept is sharpest as a bad/good contrast. Each side gets a label line and one `↳` explanation line. Limit to 2 pairs max per block.
+
+**Comparison window constraints**: labels ≤8 words. `↳` lines ≤10 words.
+
+### Data table
+Use `<!-- data-table -->` on a step or Key Takeaway slide when comparing 2–4 items across consistent dimensions. 2–3 columns max, 2–4 data rows max.
+
+**Data table constraints**: cell text ≤6 words. Header labels ≤3 words. Use English for column headers.
 
 ## Constraints (non-negotiable)
 

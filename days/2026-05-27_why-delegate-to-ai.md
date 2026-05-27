@@ -1,23 +1,47 @@
 # Stop ngoding. Mulai ngarahin.
 <!-- Slide 1 -->
+<!-- cover-terminal: ~/senior-eng $ think —before —you —type -->
 
 **Theme**: Senior backend engineer pakai AI bukan sebagai search bar, tapi sebagai junior dev.
 
 ## The Problem
 <!-- Slide 2 -->
 
-Kebanyakan engineer pakai AI cuma buat autocomplete. Atau sebaliknya, serahin desain sistem ke AI tanpa arah. Dua-duanya salah kaprah.
+Dua cara salah kaprah pakai AI.
+
+<!-- terminal-block: ~/ai-usage — debugging -->
+[ERR_01] cuma buat `autocomplete`.
+↳ AI jadi alat ketik cepat, otak tetap dingin.
+[ERR_02] serahin `desain sistem` tanpa arah.
+↳ AI ngarang, kamu nge-merge tanpa baca.
+$ verdict: dua-duanya salah.
+<!-- /terminal-block -->
 
 ## How It Works
 
 1. Anggap AI kayak junior dev yang pintar tapi butuh konteks yang jelas buat kerja dengan bener.
 <!-- Slide 3 -->
 
-2. Kasih goal, constraint, dan apa yang sudah kamu coba. Jangan cuma bilang "buatin aku X".
+2. Kasih goal, constraint, dan apa yang sudah kamu coba.
 <!-- Slide 4 -->
 
-3. Review setiap output kayak kamu review PR junior. Teliti, tapi tetap kolaboratif.
+<!-- comparison-window: Prompt Quality -->
+[BAD] "Buatin aku endpoint user"
+↳ terlalu luas, output butuh revisi berkali-kali.
+[GOOD] "POST /users, validasi email unique, return 201"
+↳ spesifik, output langsung bisa di-review.
+<!-- /comparison-window -->
+
+3. Review setiap output kayak kamu review PR junior.
 <!-- Slide 5 -->
+
+<!-- data-table: Review Checklist -->
+| Aspek | Yang perlu dicek |
+|---|---|
+| Logic | alur dan return value benar? |
+| Edge case | input kosong atau null aman? |
+| Security | ada data user yang bocor? |
+<!-- /data-table -->
 
 ## Key Takeaway
 <!-- Slide 6 -->
@@ -55,7 +79,7 @@ Project folder name: `2026-05-27_why-delegate-to-ai`
 Save all slides for this topic inside that folder. Each new topic gets its own folder.
 
 Platform: Instagram (post/reels) + TikTok (image/video)
-Aspect ratio: 9:16 portrait — 1080 × 1920 px per slide
+Aspect ratio: 4:5 portrait — 1080 × 1350 px per slide
 Total slides: 7
 
 ## Theme
@@ -66,21 +90,83 @@ Total slides: 7
 - Accent: cyan (#00D4FF) — step numbers, keywords, highlights, badges — pops against the navy base
 - Muted text: soft lavender (#A5A3C2) — subtitles, labels, secondary info
 - Body text: clean sans-serif (Inter or similar)
+- Code / monospace: Fira Code, JetBrains Mono, or similar
+
+## Typography Scale
+
+All sizes for 1080 × 1350 px canvas. Never compress type — use whitespace instead.
+
+| Role | Size | Weight | Color | Font |
+|---|---|---|---|---|
+| Cover title (H1) | 72–80px | Bold | White | Sans-serif |
+| Slide headline (H2) | 44–52px | Bold | White | Sans-serif |
+| Body / step text | 24–28px | Regular | White | Sans-serif |
+| Section label | 13–14px | Uppercase, letter-spaced | Cyan (#00D4FF) | Sans-serif |
+| Subheading / theme line | 18–22px | Regular | Soft lavender | Sans-serif |
+| Terminal / code text | 16–20px | Regular | Varies by role | Monospace |
+| Slide counter | 16–18px | Regular | Soft lavender | Monospace |
+| Footer handle | 14–16px | Regular | Soft lavender | Sans-serif |
+
+Clear hierarchy rule: H1 is ~3× body. H2 is ~2× body. Labels and footer are visually recessed — never competing with body text.
+
+## Slide Structure (Global Frame)
+
+Every slide — without exception — uses this three-zone layout:
+
+**Top bar**
+- Left: slide counter `01 / 07` — monospace, 16–18px, soft lavender (#A5A3C2)
+- Right: series label `• Backend x AI` — 16–18px, soft lavender (#A5A3C2)
+
+**Content zone**
+- All text and components are left-aligned to a consistent left margin (~80px from edge)
+- The content block as a whole is **vertically centered** on the canvas between the top bar and footer — equal whitespace above and below the block
+- Section label (non-cover slides): ~14px uppercase cyan, short cyan horizontal rule to its left, above the slide headline
+
+**Footer**
+- `@vilamas.ai` — bottom center, 14–16px, soft lavender (#A5A3C2)
+- Present on every slide, no exceptions
 
 ## Layout
 - One idea per slide — generous whitespace, nothing crowded
-- Cover slide: navy base with ambient glows prominent, large bold white title centered, cyan accent on key word(s), muted subtitle below
-- Step slides: filled cyan circle badge with white step number left side, white body text right side
-- Key Takeaway slide: cyan bold statement centered on navy, large — poster feel
-- CTA slide (Try It Today): stronger cyan glow, white bold text, action-first
+- Cover: cover-terminal prompt above H1 title; H1 left-aligned, key word in cyan italic; theme subheading below in soft lavender; `geser buat baca →→→` bottom-left in small soft lavender
+- Problem slide: section label + H2 headline + terminal window block below
+- Step slides: filled cyan circle badge (48–56px diameter, solid cyan #00D4FF, white step number centered inside) to the left of the step text; body left-aligned right of badge; optional component block below
+- Key Takeaway: H2 headline left-aligned; bold statement; short cyan horizontal rule below as accent
+- CTA (Try It Today): stronger cyan ambient glow; bold H2 action statement left-aligned; CTA row of 4 chips below: Simpan | Suka | Bagikan | Follow @vilamas.ai
 
 ## Branding
-- Series label: "Backend x AI" — small, top-right corner of every slide, soft lavender (#A5A3C2)
+- Series label: top-right every slide — see Slide Structure above
 - No stock photos — icons and typography only
-- Slide footer: account handle "@vilamas.ai" bottom center, small, soft lavender (#A5A3C2)
+- Footer: bottom center every slide — see Slide Structure above
+
+## Slide Component Types
+
+### Cover Terminal Prompt
+- Format: `~/[context] $ [action-phrase-as-flags]`
+- Styling: path in soft lavender, `$` in cyan, command text in white — all monospace, small
+- Placement: left-aligned above H1 title
+- Em-dashes as flag characters are intentional — preserve exactly
+
+### Terminal Window Block
+- Panel: #141128, rounded 8px, border #1E1B3A, left 2px cyan accent bar
+- Chrome: three dots top-left — amber #E8955A, red #E85A5A, green #5AE87B
+- Header: path/context in soft lavender monospace
+- Rows: [ERR_XX] in amber, backtick terms in cyan, ↳ in cyan + muted lavender, $ verdict muted lavender + bold white value
+
+### Comparison Window
+- Panel: same as Terminal Window Block
+- Header: title in soft lavender monospace
+- Left col [BAD] in amber; right col [GOOD] in cyan; thin column divider #1E1B3A
+- Row labels in column-header color; ↳ explanations in soft lavender monospace
+
+### Data Table
+- Panel: #141128, rounded 8px, border #1E1B3A
+- Header row: cyan bold uppercase ~14px, bottom border #1E1B3A
+- Data rows: white ~16px; alternate row banding #141128 / #1A1735; generous cell padding
 
 ## Tone
-- Bold and modern — premium AI product feel, not a terminal
+- Bold and modern — premium AI product feel
+- Terminal/window elements are used selectively — they signal "engineer's context", not decoration
 - High contrast, vibrant but not noisy — one strong color moment per slide
 - Ambient glows give depth; keep type clean and uncluttered on top
 
@@ -88,26 +174,86 @@ Total slides: 7
 
 **SLIDES:**
 
+Note: every slide uses the global frame — counter top-left, series label top-right, @vilamas.ai footer bottom-center. All content is left-aligned. Full spec in the Slide Structure section above.
+
 **Slide 1 — Cover**
-- Heading: Stop ngoding. Mulai ngarahin.
+Frame: 01 / 07 top-left (monospace, soft lavender) | • Backend x AI top-right (soft lavender) | @vilamas.ai footer bottom-center (soft lavender)
+Content block vertically centered between top bar and footer.
+- Cover terminal prompt (left-aligned above title, monospace): ~/senior-eng $ think —before —you —type
+  Path in soft lavender, $ in cyan, flag text in white
+- Heading: Stop ngoding. Mulai ngarahin. — H1, 72–80px bold white, left-aligned
+  "ngarahin" in cyan italic
 - Subheading: Senior backend engineer pakai AI bukan sebagai search bar, tapi sebagai junior dev.
+  18–22px soft lavender; "search bar" in monospace cyan tint
+- Navigation hint: geser buat baca →→→ — small soft lavender, bottom-left above footer
 
 **Slide 2 — The Problem**
-Kebanyakan engineer pakai AI cuma buat autocomplete. Atau sebaliknya, serahin desain sistem ke AI tanpa arah. Dua-duanya salah kaprah.
+Frame: 02 / 07 top-left | • Backend x AI top-right | @vilamas.ai footer
+Content block vertically centered between top bar and footer.
+- Section label: — THE PROBLEM (13–14px uppercase, letter-spaced, cyan, short cyan rule to the left)
+- Headline: Dua cara salah kaprah pakai AI. — H2, 44–52px bold white, left-aligned
+- Terminal window block (left-aligned):
+  - Panel: #141128, rounded 8px, border #1E1B3A, left 2px cyan accent bar
+  - Chrome: three dots top-left (amber #E8955A, red #E85A5A, green #5AE87B)
+  - Header: ~/ai-usage — debugging (soft lavender monospace)
+  - Row 1: [ERR_01] in amber + "cuma buat" in white + "autocomplete" in cyan monospace + "."
+  - Row 2: ↳ in cyan + "AI jadi alat ketik cepat, otak tetap dingin." in muted lavender, indented
+  - Row 3: [ERR_02] in amber + "serahin" in white + "desain sistem" in cyan monospace + "tanpa arah."
+  - Row 4: ↳ in cyan + "AI ngarang, kamu nge-merge tanpa baca." in muted lavender, indented
+  - Conclusion: "$ verdict:" in muted lavender + "dua-duanya salah." in bold white
 
 **Slide 3 — Step 1**
-Anggap AI kayak junior dev yang pintar tapi butuh konteks yang jelas buat kerja dengan bener.
+Frame: 03 / 07 top-left | • Backend x AI top-right | @vilamas.ai footer
+Content block vertically centered between top bar and footer.
+- Section label: — HOW IT WORKS (uppercase cyan, short cyan rule)
+- Step badge: filled cyan circle 48–56px, solid #00D4FF, white "1" centered inside; sits to the left of the body text
+- Body: Anggap AI kayak junior dev yang pintar tapi butuh konteks yang jelas buat kerja dengan bener. — 24–28px white, left-aligned to the right of the badge
 
 **Slide 4 — Step 2**
-Kasih goal, constraint, dan apa yang sudah kamu coba. Jangan cuma bilang "buatin aku X".
+Frame: 04 / 07 top-left | • Backend x AI top-right | @vilamas.ai footer
+Content block vertically centered between top bar and footer.
+- Step badge: filled cyan circle 48–56px, solid #00D4FF, white "2" centered inside
+- Body: Kasih goal, constraint, dan apa yang sudah kamu coba. — 24–28px white, left-aligned to the right of the badge
+- Comparison window (left-aligned below body):
+  - Panel: #141128, rounded 8px, border #1E1B3A, chrome dots top-left
+  - Header: Prompt Quality (soft lavender monospace)
+  - Left column [BAD] in amber; right column [GOOD] in cyan; thin vertical divider #1E1B3A
+  - Row 1 left: "Buatin aku endpoint user" in amber monospace
+  - Row 1 left ↳: "terlalu luas, output butuh revisi berkali-kali." in soft lavender
+  - Row 1 right: "POST /users, validasi email unique, return 201" in cyan monospace
+  - Row 1 right ↳: "spesifik, output langsung bisa di-review." in soft lavender
 
 **Slide 5 — Step 3**
-Review setiap output kayak kamu review PR junior. Teliti, tapi tetap kolaboratif.
+Frame: 05 / 07 top-left | • Backend x AI top-right | @vilamas.ai footer
+Content block vertically centered between top bar and footer.
+- Step badge: filled cyan circle 48–56px, solid #00D4FF, white "3" centered inside
+- Body: Review setiap output kayak kamu review PR junior. — 24–28px white, left-aligned to the right of the badge
+- Data table (left-aligned below body):
+  - Panel: #141128, rounded 8px, border #1E1B3A
+  - Title: Review Checklist (soft lavender monospace, above table)
+  - Header row: "ASPEK" | "YANG PERLU DICEK" — cyan bold uppercase ~14px, bottom border #1E1B3A
+  - Row 1: "Logic" | "alur dan return value benar?" — white ~16px, #141128 background
+  - Row 2: "Edge case" | "input kosong atau null aman?" — white ~16px, #1A1735 background
+  - Row 3: "Security" | "ada data user yang bocor?" — white ~16px, #141128 background
+  - Generous cell padding; no outer border radius overlap with panel
 
 **Slide 6 — Key Takeaway**
-Skill paling penting senior engineer: nulis spesifikasi yang bagus, bukan ngoding lebih cepat.
+Frame: 06 / 07 top-left | • Backend x AI top-right | @vilamas.ai footer
+Content block vertically centered between top bar and footer.
+- Section label: — KEY TAKEAWAY (uppercase cyan, short cyan rule)
+- Statement: Skill paling penting senior engineer: nulis spesifikasi yang bagus, bukan ngoding lebih cepat. — H2, 44–52px bold white, left-aligned
+- Short cyan horizontal rule below the statement as decorative accent
 
 **Slide 7 — Try It Today**
-Coba prompt AI kamu berikutnya dengan: goal yang jelas, constraint yang ada, dan apa yang sudah kamu coba.
+Frame: 07 / 07 top-left | • Backend x AI top-right | @vilamas.ai footer
+Content block vertically centered between top bar and footer.
+- Section label: — TRY IT TODAY (uppercase cyan, short cyan rule)
+- Action: Coba prompt AI kamu berikutnya dengan: goal yang jelas, constraint yang ada, dan apa yang sudah kamu coba. — H2, 44–52px bold white, left-aligned
+- CTA row (below the action text, left-aligned, equal spacing between chips):
+  - 🔖 Simpan — icon ~24px + "Simpan" label ~12px below, soft lavender, subtle #141128 chip rounded 8px
+  - ❤️ Suka — icon ~24px + "Suka" label ~12px below, soft lavender, subtle #141128 chip rounded 8px
+  - 📤 Bagikan — icon ~24px + "Bagikan" label ~12px below, soft lavender, subtle #141128 chip rounded 8px
+  - ➕ Follow @vilamas.ai — icon ~24px + "Follow @vilamas.ai" label ~12px below, cyan (#00D4FF) to make it pop, subtle #141128 chip rounded 8px
+- Stronger cyan ambient glow on this slide vs. others
 
 ---
