@@ -54,7 +54,7 @@ Every slide — without exception — uses this three-zone layout:
 - **Problem slide**: section label + H2 headline + terminal window block below
 - **Step slides**: filled cyan circle badge (48–56px diameter, solid cyan #00D4FF, white step number centered inside) to the left of the step text; body text right of badge, left-aligned; optional component block below
 - **Key Takeaway**: H2 headline left-aligned; large bold statement; short cyan horizontal rule below as accent
-- **CTA (Try It Today)**: stronger cyan ambient glow; bold H2 action statement left-aligned; CTA row below — 4 horizontal action chips: Simpan | Suka | Bagikan | Follow @vilamas.ai (each chip: icon + label, soft lavender, equal spacing)
+- **CTA (Try It Today)**: stronger cyan ambient glow; bold H2 action statement left-aligned; CTA text below — soft lavender, 16–18px: "Yuk, save, like, share, dan follow untuk content part berikutnya." No chips or icons.
 
 ## Branding
 - Series label: top-right every slide — see Slide Structure above

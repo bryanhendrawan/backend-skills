@@ -134,13 +134,7 @@ Frame: 0[N] / [total] top-left | • Backend x AI top-right | @vilamas.ai footer
 Content block vertically centered between top bar and footer.
 - Section label: — TRY IT TODAY (uppercase cyan, short cyan rule)
 - Action: [content from ## Try It Today] — H2, bold white, left-aligned
-- CTA row (below the action text, left-aligned):
-  4 action chips in a horizontal row, equal spacing:
-  - 🔖 Simpan — bookmark icon, label below, soft lavender
-  - ❤️ Suka — heart icon, label below, soft lavender
-  - 📤 Bagikan — share icon, label below, soft lavender
-  - ➕ Follow @vilamas.ai — plus icon, label below, cyan (#00D4FF) to make it pop
-  Each chip: subtle #141128 panel, rounded 8px, icon ~24px + label ~12px below
+- CTA text (below the action text, left-aligned): "Yuk, save, like, share, dan follow untuk content part berikutnya." — 16–18px, soft lavender, no chips or icons
 - Stronger cyan ambient glow on this slide vs. others
 
 ---

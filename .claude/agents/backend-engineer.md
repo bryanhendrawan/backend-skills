@@ -92,7 +92,7 @@ The slides zone uses HTML comment markers for structured visual blocks. `/design
 - Every slide global frame: slide counter `01 / N` top-left, `• Backend x AI` top-right, `@vilamas.ai` footer bottom-center
 - Content block: **vertically centered** on canvas; all text left-aligned
 - Step slides: filled cyan circle badge (48–56px, #00D4FF) with white number, to the left of body text
-- Try It Today slide: CTA row with 4 chips — Simpan, Suka, Bagikan, Follow @vilamas.ai (Follow in cyan to pop)
+- Try It Today slide: CTA text below action — soft lavender, 16–18px: "Yuk, save, like, share, dan follow untuk content part berikutnya." No chips or icons.
 - No em-dashes in slide prose (they are allowed inside component markers as flag characters)
 
 ## Boundaries

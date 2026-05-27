@@ -132,7 +132,7 @@ Every slide — without exception — uses this three-zone layout:
 - Problem slide: section label + H2 headline + terminal window block below
 - Step slides: filled cyan circle badge (48–56px diameter, solid cyan #00D4FF, white step number centered inside) to the left of the step text; body left-aligned right of badge; optional component block below
 - Key Takeaway: H2 headline left-aligned; bold statement; short cyan horizontal rule below as accent
-- CTA (Try It Today): stronger cyan ambient glow; bold H2 action statement left-aligned; CTA row of 4 chips below: Simpan | Suka | Bagikan | Follow @vilamas.ai
+- CTA (Try It Today): stronger cyan ambient glow; bold H2 action statement left-aligned; CTA text below: "Yuk, save, like, share, dan follow untuk content part berikutnya." (soft lavender, 16–18px, no chips)
 
 ## Branding
 - Series label: top-right every slide — see Slide Structure above
@@ -249,11 +249,7 @@ Frame: 07 / 07 top-left | • Backend x AI top-right | @vilamas.ai footer
 Content block vertically centered between top bar and footer.
 - Section label: — TRY IT TODAY (uppercase cyan, short cyan rule)
 - Action: Coba prompt AI kamu berikutnya dengan: goal yang jelas, constraint yang ada, dan apa yang sudah kamu coba. — H2, 44–52px bold white, left-aligned
-- CTA row (below the action text, left-aligned, equal spacing between chips):
-  - 🔖 Simpan — icon ~24px + "Simpan" label ~12px below, soft lavender, subtle #141128 chip rounded 8px
-  - ❤️ Suka — icon ~24px + "Suka" label ~12px below, soft lavender, subtle #141128 chip rounded 8px
-  - 📤 Bagikan — icon ~24px + "Bagikan" label ~12px below, soft lavender, subtle #141128 chip rounded 8px
-  - ➕ Follow @vilamas.ai — icon ~24px + "Follow @vilamas.ai" label ~12px below, cyan (#00D4FF) to make it pop, subtle #141128 chip rounded 8px
+- CTA text (below the action text, left-aligned): "Yuk, save, like, share, dan follow untuk content part berikutnya." — ~16–18px, soft lavender, no chips or icons
 - Stronger cyan ambient glow on this slide vs. others
 
 ---
