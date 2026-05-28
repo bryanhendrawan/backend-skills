@@ -21,11 +21,17 @@ Each day = one self-contained topic. Content runs indefinitely — the first 30 
 ```
 topics.md                              # Master topic index — source of truth for all topics
 days/
-  YYYY-MM-DD_topic-name.md            # One file per day: slides + caption + hashtags
+  YYYY-MM-DD_topic-name.md            # One file per day: slides + caption + design prompt
 code/
   YYYY-MM-DD_topic-name/             # Code samples for days that need them (optional)
     main.py / main.go / ...           # Runnable, self-contained example
     README.md                         # How to run it (only if non-obvious)
+output/
+  claude-design-pdf/                  # PDFs exported from Canva/Claude Design
+  images/                             # Per-slide PNGs from /pdf-to-images (gitignored)
+  caption/                            # Plain-text captions from /export-caption (gitignored)
+scripts/
+  pdf_to_images.py                    # PDF → PNG converter (used by /pdf-to-images)
 .claude/
   agents/
     backend-engineer.md               # Subagent with backend + AI domain knowledge
@@ -33,15 +39,18 @@ code/
     backend-engineer/
       MEMORY.md                       # Auto-written by the agent; tracks topic coverage
   skills/
-    generate-topics/SKILL.md          # Skill: propose next batch of unique topics
-    write-content/SKILL.md            # Skill: write a day's carousel slides
-    write-code-sample/SKILL.md        # Skill: generate the code sample for a day
-    design-prompt/                    # Skill: emit Claude design prompt for slides
+    generate-topics/SKILL.md          # /generate-topics
+    write-content/SKILL.md            # /write-content
+    write-code-sample/SKILL.md        # /write-code-sample
+    design-prompt/                    # /design-prompt
       SKILL.md
       design-guidelines.md            # Visual style (edit to change look)
-    caption/                          # Skill: write Indonesian caption + hashtags
+    caption/                          # /caption
       SKILL.md
       caption-guidelines.md           # Voice, SEO/GEO rules, hashtag mix
+    export-caption/SKILL.md           # /export-caption
+    pdf-to-images/SKILL.md            # /pdf-to-images
+    wrap-up/SKILL.md                  # /wrap-up — end-of-session cleanup
 ```
 
 - `topics.md` is the canonical record of every topic planned or published. Always check it before proposing new topics.
@@ -103,10 +112,13 @@ Skill instructions here.
 | Skill | Command | When to use |
 |---|---|---|
 | `generate-topics` | `/generate-topics` | Propose the next batch of N unique topics, checked against `topics.md` |
-| `write-content` | `/write-content` | Write the carousel slides for a given topic |
-| `write-code-sample` | `/write-code-sample` | Generate the `code/` sample for a given day |
+| `write-content` | `/write-content <date_slug>` | Write the carousel slides for a given topic |
+| `write-code-sample` | `/write-code-sample <date_slug>` | Generate the `code/` sample for a given day |
 | `design-prompt` | `/design-prompt <date_slug>` | Emit a paste-ready Claude design prompt for the slides |
-| `caption` | `/caption <date_slug>` | Generate Indonesian caption + hashtags (SEO + GEO) and append to the day file |
+| `caption` | `/caption <date_slug>` | Generate TikTok + Instagram captions + hashtags and append to the day file |
+| `export-caption` | `/export-caption <date_slug>` | Save caption + hashtags as plain text to `output/caption/` |
+| `pdf-to-images` | `/pdf-to-images <YYYY-MM-DD>` | Convert an exported Canva/Claude Design PDF to per-slide PNGs |
+| `wrap-up` | `/wrap-up` | End-of-session: update CLAUDE.md + README, write memory, commit and push |
 
 ## Day File Format
 
@@ -179,34 +191,49 @@ $ verdict: [conclusion ≤6 words].
 | `<!-- terminal-block: ~/path — label --> ... <!-- /terminal-block -->` | Dark panel with `[ERR_XX]` rows, `↳` continuations, `$ verdict` | Problem slide |
 | `<!-- comparison-window: Title --> ... <!-- /comparison-window -->` | Two-column bad/good panel | Step slides |
 | `<!-- data-table: Title --> ... <!-- /data-table -->` | Styled alternating-row table | Step or Key Takeaway |
+| `<!-- process-flow: Title --> ... <!-- /process-flow -->` | Pill-node flow diagram, left to right (max 5 nodes) | Workflow/sequence slides |
+| `<!-- highlight-stat --> ... <!-- /highlight-stat -->` | Large single-number callout, no panel | Impact slides; once per day max |
+| `<!-- code-snippet: lang — label --> ... <!-- /code-snippet -->` | Compact syntax-highlighted code panel (6–8 lines) | Steps proving concept with code |
+| `<!-- metric-card --> ... <!-- /metric-card -->` | 2–3 compact impact cards side-by-side | Impact or Key Takeaway slides |
+| `<!-- chat-bubble --> ... <!-- /chat-bubble -->` | AI prompt/response pair (1 prompt + 1 response) | Steps showing prompt → output |
+
+**Component compactness rule**: panels are tight to their content — no blank lines inside a component block, no excess internal padding. Whitespace lives around the panel, not inside it.
 
 **Slides-zone constraints** (non-negotiable):
 - **Language**: Bahasa Indonesia, `kamu/aku` voice — professional but casual, not too streetwise. Technical terms stay in English: `backend`, `AI`, `Claude Code`, `prompt`, `code review`, `PR`, `migration`, etc. — don't force translation.
+- **Company scenarios**: examples must be grounded in company or team work — not personal side projects or solo experiments. Pick a scenario a practicing engineer would recognise from their own job: a sprint task, a team process, an ops incident.
 - **Title**: ≤8 words. Hook, not a chapter heading.
 - **Slide body**: ≤2 sentences OR ≤3 bullets per slide — one idea per slide.
 - **Steps**: ≤15 words each. Split a long step into two rather than going over.
+- **No em-dashes** (—) anywhere in prose. Use a period or comma instead. Em-dashes inside `<!-- cover-terminal: ... -->` are intentional flag characters — preserve those.
 - **No raw tables, nested lists, or blockquotes** in prose — use the component markers above for structured content instead.
-- **Inline code**: ≤8 lines, one short illustrative snippet only. Full code lives in `code/`.
+- **Inline code**: ≤8 lines, illustrative only. Full code lives in `code/`.
 - **No jargon without a one-word gloss** inline — e.g. "N+1 query (loop database tersembunyi)".
-- **"Try It Today" slide is mandatory** on every day file.
+- **Closing slide**: Problem-Solution template ends with `## Try It Today`. Showdown template ends with `## Close` (combines the tease, action, and CTA in one slide — no separate Stay Tuned or Try It Today slides).
 
 **Post-zone constraints**:
 - Language: Bahasa Indonesia, `kamu/aku` tone — see `caption-guidelines.md`.
-- Caption ~400 chars total, first line ≤125 chars (IG preview snippet).
+- **Two captions per day**: `**TikTok**` (150–300 chars) and `**Instagram**` (150–400 chars), each under the same `## Caption` header with its own `## Hashtags` block under `## Hashtags`.
+- No special characters in captions: only period, comma, question mark, exclamation mark. No em-dash, pipe, asterisk, or parentheses.
+- TikTok: punchy, one idea per line, must include `#fyp #FYPIndonesia`, 8–10 hashtags.
+- Instagram: first line ≤125 chars (IG preview), 10–12 hashtags, save/follow CTA.
 - SEO: front-load searched keywords (backend engineer, AI, Claude Code, etc.).
 - GEO (Generative Engine Optimization): quotable claims, specific numbers, definitive phrasing — so AI search engines cite the content.
-- 10–15 hashtags, mix of broad + niche + Indonesia-specific.
+- **Fixed CTA text**: "Jangan lupa like, save, share, and follow buat tips berikutnya" — use this exact wording in design prompts.
 
 ## `topics.md` Format
 
-Each entry records: the publish date, slug, title, and whether it has a code sample.
+Each entry records the full pipeline state for a topic.
 
 ```markdown
-| Date | Slug | Title | Code |
-|---|---|---|---|
-| 2025-01-01 | using-llm-for-code-review | Using LLMs for Automated Code Review | yes |
-| 2025-01-02 | ai-generated-migrations | Generating Database Migrations with AI | no |
+| Date | Slug | Title | Code | Stack | Tool | Series | Status | Post URL |
+|---|---|---|---|---|---|---|---|---|
+| 2026-05-27 | why-delegate-to-ai | Why backend engineers should learn to delegate to AI | no | — | both | — | posted | [IG](...) [TT](...) [FB](...) |
+| 2026-05-28 | ai-invoice-processing | Invoice ratusan, tim cuma 2 orang | no | — | both | — | draft | — |
 ```
+
+- **Post URL**: all platform links in one cell, formatted as `[IG](...) [TT](...) [FB](...)`. Never split into separate columns.
+- **Status**: `draft` → `written` → `posted`.
 
 ## Working in This Repo
 

@@ -49,12 +49,14 @@ Every slide — without exception — uses this three-zone layout:
 
 ## Layout
 
-- One idea per slide — generous whitespace, nothing crowded
+- One idea per slide — generous whitespace around the content block; the slide breathes
+- **Component panels are compact**: internal padding inside panels (terminal-block, comparison-window, data-table, process-flow, code-snippet, chat-bubble, metric-card) is tight — no blank lines within a panel, no excess top/bottom padding. The whitespace lives outside the panel, not inside it.
 - **Cover**: cover-terminal prompt above H1 title; H1 left-aligned, key word in cyan italic; theme subheading below in soft lavender; `geser buat baca →→→` bottom-left in small soft lavender
 - **Problem slide**: section label + H2 headline + terminal window block below
 - **Step slides**: filled cyan circle badge (48–56px diameter, solid cyan #00D4FF, white step number centered inside) to the left of the step text; body text right of badge, left-aligned; optional component block below
 - **Key Takeaway**: H2 headline left-aligned; large bold statement; short cyan horizontal rule below as accent
-- **CTA (Try It Today)**: stronger cyan ambient glow; bold H2 action statement left-aligned; CTA text below — soft lavender, 16–18px: "Yuk, save, like, share, dan follow untuk content part berikutnya." No chips or icons.
+- **CTA / Try It Today** (Problem-Solution template): stronger cyan ambient glow; bold H2 action statement left-aligned; CTA text below — soft lavender, 16–18px, varied per day (not boilerplate). No chips or icons.
+- **Close slide** (Showdown template): two stacked zones separated by a short cyan horizontal rule. Top zone: section label "WHAT'S NEXT" + tease line in soft lavender italic, 18–22px. Bottom zone: section label "TRY IT TODAY" + bold white H2 action + CTA text in soft lavender, 16–18px. Stronger cyan ambient glow.
 
 ## Branding
 - Series label: top-right every slide — see Slide Structure above
@@ -103,6 +105,52 @@ A minimal styled table for structured comparisons — 2–4 rows, 2–3 columns 
 - Data rows: white text ~16px; alternate rows use #141128 and #1A1735 for subtle banding
 - Cell padding: generous — never cramped
 - Use on: Any slide comparing 2–4 distinct values across consistent dimensions
+
+### Process Flow
+A horizontal flow diagram for visualizing sequential steps — workflows, pipelines, company processes.
+- Panel: background #141128, rounded corners (8px), border (#1E1B3A)
+- Step nodes: #1A1735 background, 8px radius, thin border (#1E1B3A)
+- Step label `[STEP_XX]`: small cyan monospace, above or inside the node
+- Step text: white, 14–16px, max 3–4 words per node
+- Arrows between nodes: thin cyan (#00D4FF) right-pointing arrow, vertically centered between nodes
+- Flow title: soft lavender monospace, above the panel
+- Max 5 nodes — more becomes unreadable at 1080px canvas width
+- Use on: Any slide where a sequence of steps is the main concept
+
+### Highlight Stat
+A large floating stat callout — no panel, the number dominates the slide.
+- `[NUMBER]`: 90–110px, bold, cyan (#00D4FF) — the dominant visual element
+- `[LABEL]`: 24–28px, bold white, directly below the number
+- `[CONTEXT]`: 16–18px, soft lavender, below the label
+- Optional: faint cyan glow halo around the number for depth
+- Use on: Any slide where one number tells the whole story (savings, error reduction, scale)
+- One per day maximum — use sparingly so it stays impactful
+
+### Code Snippet
+A compact syntax-highlighted code panel. Use when the slide's proof IS the code itself.
+- Panel: background #141128, rounded corners (8px), border (#1E1B3A), window chrome dots top-left
+- Label: soft lavender monospace, above the panel — must name the real context (e.g., "CLAUDE.md tim finance", "migration users table")
+- Code text: monospace 15–18px; keywords in cyan (#00D4FF); strings in amber (#E8955A); comments in soft lavender; rest in white
+- **Compact**: panel height is tight to the content — no excess vertical padding; no blank lines rendered between code lines
+- Max 6–8 visible lines — trim to the most informative lines; the panel should feel dense and purposeful
+- Use instead of Terminal Window Block when showing actual source code, config, or SQL (not command output)
+
+### Metric Card
+A horizontal row of 2–3 compact impact cards, each showing one metric.
+- Layout: 2–3 equal-width cards in a tight row, stretching to fill content width; ~20px gap between cards
+- Each card: background #1A1735, rounded 12px, thin border (#1E1B3A); compact internal padding
+- Label (text before `|`): 13–15px white, positioned above the value
+- Value (text after `|`): 32–40px bold cyan (#00D4FF) — dominant element inside each card
+- Use when 2–3 numbers carry equal weight (e.g., time saved + error rate + cycle time); distinct from Highlight Stat which features one dominant number
+
+### Chat Bubble
+A two-row panel showing an AI prompt/response exchange. Use when "this is what you type → this is what you get" is the motivating insight.
+- Panel: background #141128, rounded corners (8px), border (#1E1B3A)
+- [PROMPT] row: "You" label in amber (#E8955A) 12px monospace; prompt text in white 16px; 2px amber vertical left accent bar; no extra padding above
+- [RESPONSE] row: "AI" label in cyan (#00D4FF) 12px monospace; response text in white 16px; 2px cyan vertical left accent bar
+- Gap between rows: 8px; tight overall vertical padding — panel height matches 2 rows + minimal spacing
+- Exactly 1 [PROMPT] + 1 [RESPONSE] per block; panel stays compact, not sprawling
+- Use on Step slides where the key insight is the directness of the interaction
 
 ## Tone
 - Bold and modern — premium AI product feel

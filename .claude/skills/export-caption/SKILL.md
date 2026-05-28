@@ -4,17 +4,35 @@ argument-hint: <YYYY-MM-DD_slug>
 disable-model-invocation: false
 ---
 
-Extract the caption and hashtags from the day file and write to a plain text file.
+Extract the caption and hashtags from the day file and write to plain text files.
 
 1. Read `days/$ARGUMENTS.md`.
 
 2. Find the **post zone** — the content between the first and second horizontal rules (`---`). It contains `## Caption` and `## Hashtags` sections.
 
-3. Extract:
-   - Caption text: everything under `## Caption`, excluding the header line itself
-   - Hashtags: everything under `## Hashtags`, excluding the header line itself
+3. Detect the caption format:
+   - **New format** (two platforms): the `## Caption` section contains `**TikTok**` and `**Instagram**` sub-labels. Extract each platform's caption and hashtags separately.
+   - **Legacy format** (single caption): the `## Caption` section has no sub-labels. Extract as a single block.
 
-4. Write to `output/caption/$ARGUMENTS.txt` in this exact format — plain text, no markdown headers:
+4. For **new format**, write two files:
+
+   `output/caption/$ARGUMENTS_tiktok.txt`:
+   ```
+   <TikTok caption text>
+
+   <TikTok hashtags>
+   ```
+
+   `output/caption/$ARGUMENTS_instagram.txt`:
+   ```
+   <Instagram caption text>
+
+   <Instagram hashtags>
+   ```
+
+   For **legacy format**, write one file:
+
+   `output/caption/$ARGUMENTS.txt`:
    ```
    <caption text>
 
@@ -23,4 +41,4 @@ Extract the caption and hashtags from the day file and write to a plain text fil
 
 5. Create `output/caption/` if it does not exist.
 
-6. Confirm the file path and show the first line of the caption as a preview.
+6. Confirm the file path(s) and show the first line of each caption as a preview.

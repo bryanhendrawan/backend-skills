@@ -7,7 +7,7 @@ Auto-maintained log of what's been covered, what's pending, and what Bryan has t
 | Date | Slug | Angle | Code |
 |---|---|---|---|
 | 2026-05-27 | why-delegate-to-ai | Mindset shift: treat AI like a junior dev (spec + review), not autocomplete or oracle | no |
-| 2026-05-28 | claude-code-vs-web-chat | Tool choice: web chat for one-off questions, Claude Code for repo-aware multi-file work | no |
+| 2026-05-28 | ai-invoice-processing | Showdown: company finance team, invoice email processing — manual 5-step vs. AI-automated 4-step, diff + receipt | no |
 | 2026-05-29 | first-claude-md | Project setup: writing CLAUDE.md as a briefing for AI partner | yes (Go baseline) |
 | 2026-05-30 | ai-migrations | Database: natural-language to up+down migration, verify rollback before merge | yes (Go + SQLite + embedded migrations) |
 | 2026-05-31 | pre-pr-self-review | Code review: 4-pass /code-review (linter, security, pentest, logic) before push | no |
@@ -54,6 +54,17 @@ When proposing Days 8+, bias toward these gaps. Run `/generate-topics 5` and bia
 - **Plan-review is mandatory** — never jump to generating content. Always outline → approval → write.
 - **Day file = three zones**: slides → `---` → caption + hashtags → `---` → design prompt. Established Day 1, used Days 2–7.
 - **SQLite pure-Go (`modernc.org/sqlite`)** is the default DB for series code. Zero CGO, zero install friction.
+- **Two carousel templates** now exist: `Problem-Solution` (Days 1, 3–7) and `Showdown` (Day 2 onward). Rotate between them across days so the feed doesn't feel like the same deck on repeat. See `.claude/skills/write-content/SKILL.md` for both.
+- **Stay Tuned slide** is an optional slot before "Try It Today" on either template. One bold sentence teasing a hidden feature or future day. No date or day reference, no spoiler — just anticipation. Introduced on Day 2.
+- **CTA copy should vary per day**. The boilerplate "Yuk, save, like, share..." used identically on Days 1–7 made the feed feel repetitive. From Day 2 (Showdown) onward, the per-day Try It Today action statement stays in write-content, but the closing CTA wording is varied at the `/design-prompt` step. TODO: update `.claude/skills/design-prompt/` to make this variation explicit.
+- **Topic swap on 2026-05-28**: original `claude-code-vs-web-chat` was retired (too close to Day 1's mindset piece). Replaced with `same-project-two-ways` — company real-case framing: engineer gets a sprint task on an unfamiliar service, shown in Showdown format (Tanpa AI vs. Dengan AI).
+- **No brand labels in Showdown**: use `[TANPA AI]` / `[DENGAN AI]`. Never frame it as "Brand X wins."
+- **Closing = single `## Close` slide**: combines Stay Tuned tease (bold italic) + Try It Today action + CTA. Replaced the old two-slide pattern (Stay Tuned + Try It Today).
+- **Two new component types added** to write-content, design-prompt, and design-guidelines:
+  - `process-flow` — pill nodes left-to-right with cyan arrows. Prefer over terminal-block for workflow/pipeline slides. Max 5 steps, ≤4 words per node.
+  - `highlight-stat` — floating large cyan number. Use when one stat tells the whole story. Max once per day.
+- **Company scenarios required**: examples in slides must be grounded in company/team work — no personal side projects. Rule added to write-content/SKILL.md Constraints.
+- **CTA copy varies per day**: the boilerplate "Yuk, save, like, share..." is retired. Design-prompt now specifies fresh wording per day, same intent.
 
 ## Open questions / things to revisit
 

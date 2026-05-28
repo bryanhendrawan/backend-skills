@@ -1,5 +1,5 @@
 ---
-name: Generate Topics
+name: generate-topics
 description: Proposes a batch of new unique topics for the backend-skills content library. Checks topics.md for non-overlap by angle, not just title. Use when planning the next set of days to publish.
 argument-hint: <count, default 5>
 disable-model-invocation: false

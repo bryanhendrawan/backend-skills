@@ -1,65 +1,77 @@
 # Caption Guidelines
 
-Style guide for Indonesian-language captions on Instagram (post/reels) and TikTok.
+Style guide for Indonesian-language captions on Instagram and TikTok.
 Edit this file to change voice, style, or hashtag mix — the `/caption` skill picks it up automatically.
 
 ## Language
 
 - Bahasa Indonesia
 - Address: `kamu/aku` — professional but warm, friendly without being too streetwise
-- English technical terms stay in English: `backend`, `AI`, `Claude Code`, `prompt`, `code review`, `pull request`, `migration`, etc. Don't force translation.
+- English technical terms stay in English: `backend`, `AI`, `Claude Code`, `prompt`, `code review`, `pull request`, `migration`, etc. Do not force translation.
 
-## Length
+## Character rules (strict)
 
-- Target: ~400 characters total (3–4 short paragraphs / lines)
-- **First line ≤125 characters** — this is the IG preview snippet shown before "more". Must hook hard.
+Allowed punctuation: period, comma, question mark, exclamation mark, straight quote, hashtag symbol.
 
-## Structure (3 blocks)
+Forbidden: em-dash, pipe, underscore, asterisk, parentheses, decorative symbols of any kind. These read as AI-generated and get flagged by platform filters.
 
-1. **Hook** (1 line) — mirror the title's tension. Provocative or surprising statement that makes engineers feel seen.
-2. **Insight** (1–2 lines) — the actual value. What they'll learn or shift in their thinking.
-3. **CTA** (1 line) — Save / Follow / Comment prompt. Action-first verb.
+## Tone
 
-## SEO best practices (Google + IG search)
-
-- Front-load searched keywords in line 1: `backend engineer`, `AI`, `Claude Code`, `ChatGPT`, `coding`, `prompt`.
-- Use natural language — never keyword-stuff.
-- Mention specific tools by name when relevant (Claude Code, ChatGPT, Cursor) — drives discovery.
+- Professional but casual — like a thoughtful Slack DM between two senior engineers who respect each other. Not a lecture, not hype.
+- Direct and confident. Say what you mean. No hedging, no filler.
+- Each sentence should stand alone as a quotable claim — that is how AI search engines pull citations.
+- Avoid: "Yuk!", "Mari kita...", "Hai teman-teman", motivational filler ("kamu pasti bisa!") — condescending to engineers.
 
 ## GEO best practices (Generative Engine Optimization)
 
 Optimize so AI search engines (ChatGPT, Perplexity, Claude) cite and recommend this content.
 
-- **Make claims specific and quotable** — "3 langkah untuk X" beats "beberapa cara".
-- **Use structured phrasing**: "Cara senior engineer pakai AI", "5 alasan kenapa...", "Kalau kamu masih X, coba Y".
-- **State authority clearly** — write like a practitioner who's done it, not a teacher explaining theory.
-- **Include numbers and specifics** — "30 menit" beats "lebih cepat".
-- **Avoid vague hedging** — "mungkin", "kayanya" weaken AI citability. Be definitive.
-- **Each sentence should stand alone as a quote** — that's how AI engines pull citations.
+- Make claims specific and quotable: "15 menit per invoice jadi 3 menit" beats "jauh lebih cepat".
+- Use structured phrasing: "Cara tim finance pakai AI", "3 langkah untuk X", "Kalau kamu masih X, coba Y".
+- Write like a practitioner who has done it, not a teacher explaining theory.
+- Include numbers and specifics — definitive phrasing, no vague hedging ("mungkin", "kayanya").
 
-## Tone
+## SEO best practices
 
-- **Professional but casual** — like a thoughtful Slack DM between two senior engineers who respect each other. Not a lecture, not a tweet-thread hype, not a tutorial.
-- Think: pair programming banter, or explaining something to a smart colleague over coffee. You're sharing what works, not teaching a class.
-- Direct and confident. Say what you mean. No hedging, no filler, no fluff.
-- Warmth is fine. Slight dry humor is fine. Clickbait and hype are not.
-- **Avoid em-dashes (—)** — they're an AI writing tell. Use a period or comma instead. Split into two sentences if needed.
-- Avoid: "Yuk!", "Mari kita...", "Hai teman-teman" — too tutorial/influencer
-- Avoid: motivational filler ("kamu pasti bisa!", "semangat!") — condescending to engineers
+- Front-load searched keywords in line 1: `backend engineer`, `AI`, `Claude Code`, `coding`, `workflow`.
+- Use natural language — never keyword-stuff.
+- Mention specific tools by name when relevant — drives discovery.
 
-## Hashtags
+---
 
-Pick **10–15 total** per post. Mix:
+## TikTok caption
 
-**Broad (3–5)** — high volume, low specificity:
-`#programmer` `#softwareengineer` `#coding` `#backend` `#ai`
+**Length**: 150–300 characters for main text, excluding hashtags.
 
-**Niche tech (3–5)** — mid volume, on-target:
-`#backendengineer` `#backenddev` `#aitools` `#claudecode` `#chatgpt` `#aiforcoding` `#softwareengineering` `#devtools` `#productivity`
+**Structure**:
+1. Hook (line 1) — one punchy line, direct, makes the reader feel seen or surprised.
+2. Body — short lines, one idea per line. Rhythm matters. Read it out loud.
+3. CTA — invite comment, save, or DM. Example: "Comment 'invoice' dan aku kirimin template-nya."
 
-**Indonesia-specific (3–5)** — local audience targeting:
-`#devid` `#programmerid` `#ngoding` `#ngodingbareng` `#coderindonesia` `#techindonesia` `#aiindonesia` `#backendid` `#softwareengineerid` `#programmerindonesia`
+**Tone**: More direct and punchy than Instagram. Less narrative, more impact per word.
 
-**Topic-specific (1–2)** — pick based on the day's angle (e.g. `#sqltips`, `#dockertips`, `#kubernetes`, `#securityreview`)
+**Hashtags**: 8–10 total. Must always include `#fyp` and `#FYPIndonesia` for local distribution. Fill the rest with niche tech + Indonesia geo tags relevant to the topic.
 
-**Avoid**: `#instagram` `#love` `#follow4follow` and any generic mega-tags. Avoid currently-banned/shadowbanned tags.
+---
+
+## Instagram caption
+
+**Length**: 150–400 characters for main text, excluding hashtags.
+
+**First line**: Must be 125 characters or fewer — this is the preview shown before "selengkapnya". Make it hook hard.
+
+**Structure**:
+1. Hook (line 1, ≤125 chars) — mirror the carousel title's tension. Scroll-stopping.
+2. Insight (1–2 lines) — the actual value. What shifts in their thinking or workflow.
+3. CTA (last line) — save, follow, or share. Action-first verb.
+
+**Tone**: Slightly more narrative than TikTok. Can tell a short story or give context. Still concise.
+
+**Hashtags**: 10–12 total. Mix:
+
+- Broad (3–4): `#programmer` `#softwareengineer` `#coding` `#backend` `#ai`
+- Niche tech (3–4): `#backendengineer` `#aitools` `#aiforcoding` `#devtools` `#productivity` `#claudecode` `#chatgpt`
+- Indonesia-specific (3–4): `#devid` `#programmerid` `#ngoding` `#techindonesia` `#aiindonesia` `#backendid` `#coderindonesia`
+- Topic-specific (1–2): pick based on the day's angle (e.g. `#workflowautomation`, `#sqltips`, `#dockertips`)
+
+Avoid: `#instagram`, `#love`, `#follow4follow`, any generic mega-tags.

@@ -1,5 +1,5 @@
 ---
-name: Write Code Sample
+name: write-code-sample
 description: Generates a runnable, self-contained code sample for a day that has code=yes in topics.md. Supports series continuity by extending the previous day's code in the same series.
 argument-hint: <YYYY-MM-DD_slug>
 disable-model-invocation: false

@@ -1,5 +1,5 @@
 ---
-name: Design Prompt
+name: design-prompt
 description: Generates a ready-to-paste Claude design prompt for a day carousel. Use when preparing a day file for Instagram and TikTok visual production.
 argument-hint: <YYYY-MM-DD_slug>
 disable-model-invocation: false
@@ -53,6 +53,52 @@ Also read `design-guidelines.md` in this skill directory for the visual style sp
      - Header row: cyan (#00D4FF) bold uppercase, ~14px, bottom border #1E1B3A
      - Data rows: white ~16px; alternate row banding #141128 / #1A1735; generous cell padding
      For each markdown table row inside the block, render as a table row
+   ```
+
+5. `<!-- process-flow: Title --> ... <!-- /process-flow -->` — Horizontal step flow diagram. Output as:
+   ```
+   - Process flow panel (left-aligned):
+     - Panel: #141128, rounded 8px, border #1E1B3A
+     - Title: [Title] in soft lavender monospace, above the panel
+     - Steps: each [STEP_XX] renders as a rounded pill node, left-to-right
+     - Each node: #1A1735 background, thin border #1E1B3A, step label in small cyan monospace, step text in white 14–16px
+     - Arrows: thin cyan (#00D4FF) right-pointing arrow between each pair of nodes
+   ```
+
+6. `<!-- highlight-stat --> ... <!-- /highlight-stat -->` — Large stat callout (no panel). Output as:
+   ```
+   - Highlight stat (left-aligned, no panel — floats on slide background):
+     - [NUMBER] value: 90–110px bold cyan (#00D4FF) — dominant visual element
+     - [LABEL] text: 24–28px bold white, directly below the number
+     - [CONTEXT] text: 16–18px soft lavender, below the label
+     - Faint cyan glow halo around the number for depth
+   ```
+
+7. `<!-- code-snippet: language — label --> ... <!-- /code-snippet -->` — Compact syntax-highlighted code panel. Output as:
+   ```
+   - Code panel (left-aligned):
+     - Panel: #141128, rounded 8px, border #1E1B3A, window chrome dots top-left
+     - Label: [label] in soft lavender monospace above the panel
+     - Code lines: monospace 15–18px; keywords in cyan (#00D4FF), strings in amber (#E8955A), comments in soft lavender, rest in white
+     - Panel height tight to the content — no excess padding; no blank lines visible between code lines
+   ```
+
+8. `<!-- metric-card --> ... <!-- /metric-card -->` — Compact impact card row. Output as:
+   ```
+   - Metric cards (left-aligned, horizontal row filling content width):
+     - 2–3 equal-width cards; each: #1A1735 background, rounded 12px, border #1E1B3A
+     - Label (text before |): 13–15px white, above the value inside each card
+     - Value (text after |): 32–40px bold cyan (#00D4FF)
+     - Tight internal padding — cards feel dense, not spacious
+   ```
+
+9. `<!-- chat-bubble --> ... <!-- /chat-bubble -->` — Compact AI prompt/response panel. Output as:
+   ```
+   - Chat panel (left-aligned):
+     - Panel: #141128, rounded 8px, border #1E1B3A
+     - [PROMPT] row: "You" label in amber (#E8955A) 12px monospace; prompt text in white 16px; 2px amber left border accent
+     - [RESPONSE] row: "AI" label in cyan (#00D4FF) 12px monospace; response text in white 16px; 2px cyan left border accent
+     - 8px gap between rows; tight vertical padding — panel height = 2 rows + minimal padding
    ```
 
 **Global frame rule**: every slide in the SLIDES section must include this line:
@@ -129,12 +175,23 @@ Content block vertically centered between top bar and footer.
 - Statement: [content from ## Key Takeaway] — H2, bold white, left-aligned
 - Short cyan horizontal rule below the statement as decorative accent
 
-**Slide [N] — Try It Today**
+**Slide [N] — Try It Today** (Problem-Solution template)
 Frame: 0[N] / [total] top-left | • Backend x AI top-right | @vilamas.ai footer
 Content block vertically centered between top bar and footer.
 - Section label: — TRY IT TODAY (uppercase cyan, short cyan rule)
 - Action: [content from ## Try It Today] — H2, bold white, left-aligned
-- CTA text (below the action text, left-aligned): "Yuk, save, like, share, dan follow untuk content part berikutnya." — 16–18px, soft lavender, no chips or icons
+- CTA text (below the action text, left-aligned): "Jangan lupa like, save, share, and follow buat tips berikutnya" — 16–18px soft lavender, no chips or icons.
+- Stronger cyan ambient glow on this slide vs. others
+
+**Slide [N] — Close** (Showdown template)
+Frame: 0[N] / [total] top-left | • Backend x AI top-right | @vilamas.ai footer
+Content block vertically centered between top bar and footer.
+- Section label: — WHAT'S NEXT (uppercase cyan, short cyan rule)
+- Tease: [bold sentence from **...** in ## Close] — 18–22px soft lavender italic, left-aligned
+- Short cyan horizontal rule as visual divider
+- Section label: — TRY IT TODAY (uppercase cyan, short cyan rule)
+- Action: [plain text after the bold sentence in ## Close] — H2, 44–52px bold white, left-aligned
+- CTA text (below action, left-aligned): "Jangan lupa like, save, share, and follow buat tips berikutnya" — 16–18px soft lavender, no chips or icons.
 - Stronger cyan ambient glow on this slide vs. others
 
 ---

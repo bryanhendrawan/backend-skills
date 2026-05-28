@@ -19,8 +19,8 @@ Master index of every topic — planned and published. Always check this file fo
 
 | Date       | Slug                          | Title                                                                  | Code | Stack | Tool | Series        | Status  | Post URL |
 |------------|-------------------------------|------------------------------------------------------------------------|------|-------|------|---------------|---------|----------|
-| 2026-05-27 | why-delegate-to-ai            | Why backend engineers should learn to delegate to AI                   | no   | —     | both | —             | written | —        |
-| 2026-05-28 | claude-code-vs-web-chat       | Claude Code vs web chat: when each one wins for backend work           | no   | —     | both | —             | written | —        |
+| 2026-05-27 | why-delegate-to-ai            | Why backend engineers should learn to delegate to AI                   | no   | —     | both | —             | posted  | [IG](https://www.instagram.com/p/DY2LTxbgaw1/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==) [TT](https://www.tiktok.com/@vilamas.ai/photo/7644591137868778773?is_from_webapp=1&sender_device=pc&web_id=7635681994010330645) [FB](https://web.facebook.com/share/p/1J53brjXvn/) |
+| 2026-05-28 | ai-invoice-processing         | Invoice ratusan, tim cuma 2 orang: gimana AI bantu                     | no   | —     | both | —             | draft   | —        |
 | 2026-05-29 | first-claude-md               | Your first CLAUDE.md for a backend repo                                | yes  | go    | cc   | go-service    | written | —        |
 | 2026-05-30 | ai-migrations                 | Generating database migrations from a natural-language schema change   | yes  | go    | cc   | go-service    | written | —        |
 | 2026-05-31 | pre-pr-self-review            | Pre-PR self-review with /code-review: linter, security, pentest, logic | no   | —     | cc   | —             | written | —        |
@@ -30,7 +30,7 @@ Master index of every topic — planned and published. Always check this file fo
 | 2026-06-04 | explore-unfamiliar-codebase   | Exploring an unfamiliar codebase with web chat before opening the IDE  | no   | —     | web  | —             | draft   | —        |
 | 2026-06-05 | table-driven-tests            | Table-driven tests at scale with AI                                    | yes  | go    | cc   | go-service    | draft   | —        |
 | 2026-06-06 | decode-stack-trace            | Decoding a 500-line stack trace with AI                                | no   | —     | web  | —             | draft   | —        |
-| 2026-06-07 | explain-your-own-code         | Asking AI to explain code you wrote six months ago                     | no   | —     | both | —             | draft   | —        |
+| 2026-06-07 | explain-your-own-code         | Decoding a service your team inherited when the author quit            | no   | —     | both | —             | draft   | —        |
 | 2026-06-08 | triage-prod-logs              | Triaging production logs with AI: noise into signal                    | yes  | py    | both | —             | draft   | —        |
 | 2026-06-09 | reproduce-flaky-test          | Reproducing a flaky test with AI's help                                | no   | —     | web  | —             | draft   | —        |
 | 2026-06-10 | complex-sql-queries           | Writing the SQL you're embarrassed to write by hand                    | yes  | py    | web  | —             | draft   | —        |

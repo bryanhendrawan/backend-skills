@@ -105,8 +105,9 @@ scripts/
 |-------|-------------|
 | `/write-content YYYY-MM-DD_slug` | Write carousel slides for a topic |
 | `/write-code-sample YYYY-MM-DD_slug` | Generate the code sample |
-| `/caption YYYY-MM-DD_slug` | Generate Indonesian caption + hashtags |
+| `/caption YYYY-MM-DD_slug` | Generate TikTok + Instagram captions + hashtags |
 | `/design-prompt YYYY-MM-DD_slug` | Generate paste-ready Claude Design prompt |
 | `/generate-topics` | Propose next batch of unique topics |
 | `/pdf-to-images YYYY-MM-DD` | Convert an exported PDF into per-slide PNGs in `output/images/` |
 | `/export-caption YYYY-MM-DD_slug` | Save caption + hashtags as plain text to `output/caption/` |
+| `/wrap-up` | End-of-session: update docs, write memory, commit and push to GitHub |
