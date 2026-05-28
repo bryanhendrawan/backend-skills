@@ -7,7 +7,7 @@
 ## Masalah Lama
 <!-- Slide 2 -->
 
-Puluhan email invoice masuk setiap hari, format beda-beda, semua harus diinput manual ke sistem.
+Ratusan email invoice masuk setiap bulannya, format beda-beda, semua harus diinput manual ke sistem.
 
 <!-- process-flow: Proses manual sekarang -->
 [STEP_01] Email invoice masuk
@@ -44,12 +44,12 @@ Bukan cuma soal kecepatan. Risiko error dan deadline terlewat jauh berkurang.
 ## The Receipt
 <!-- Slide 5 -->
 
-Estimasi dampak nyata untuk tim finance dengan 50 invoice per hari.
+Estimasi dampak nyata untuk tim finance dengan puluhan invoice setiap harinya.
 
 <!-- data-table: Impact per hari -->
 | Metrik | Tanpa AI | Dengan AI |
 |---|---|---|
-| Waktu per invoice | 15 menit | 3 menit |
+| Waktu proses per invoice | 15 menit | 3 menit |
 | Error rate input | ~8% | ~1% |
 | Laporan deadline | manual | otomatis |
 <!-- /data-table -->
@@ -66,19 +66,17 @@ Cari satu proses di tim kamu yang paling banyak copy-paste manual. Kita mulai da
 ## Caption
 
 **TikTok**
-50 invoice sehari, 2 orang tim finance, format beda tiap vendor.
-AI yang baca, map, dan siapkan laporannya.
+Tim finance 2 orang, ratusan invoice sebulan, format beda tiap vendor.
+AI yang parse dan map semuanya.
 Tim tinggal validasi.
-Follow kalau tim kamu masih input manual.
+Follow buat lihat workflow lengkapnya.
 
 **Instagram**
-Tim finance 2 orang, 50 invoice sehari, format beda-beda tiap vendor. Ini bukan masalah kecepatan, ini masalah workflow yang salah desain.
+Ratusan invoice sebulan, tim cuma 2 orang, format vendor beda-beda. Ini bukan soal kurang tenaga.
 
 Dengan AI, 15 menit per invoice jadi 3 menit. Error rate turun dari 8% ke 1%. Laporan deadline pembayaran muncul otomatis.
 
-AI tidak gantikan orangnya, AI yang handle bagian repetitif. Kita tinggal fokus ke keputusan yang butuh konteks.
-
-Simpan post ini kalau ada proses di tim kamu yang masih jalan manual. Follow untuk lanjutannya.
+Simpan post ini kalau ada proses di tim kamu yang masih jalan manual. Jangan lupa like, save, share, and follow buat tips berikutnya.
 
 ## Hashtags
 

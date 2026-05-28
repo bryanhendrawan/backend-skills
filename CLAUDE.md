@@ -32,6 +32,10 @@ output/
   caption/                            # Plain-text captions from /export-caption (gitignored)
 scripts/
   pdf_to_images.py                    # PDF → PNG converter (used by /pdf-to-images)
+  upload_to_drive.py                  # Google Drive uploader (used by /upload-to-drive)
+secrets/                              # Credentials — gitignored, never committed
+  vilamas-gcloud-secret.json          # OAuth client secret for Google Drive
+  token.json                          # Cached OAuth token (auto-generated on first run)
 .claude/
   agents/
     backend-engineer.md               # Subagent with backend + AI domain knowledge
@@ -50,6 +54,7 @@ scripts/
       caption-guidelines.md           # Voice, SEO/GEO rules, hashtag mix
     export-caption/SKILL.md           # /export-caption
     pdf-to-images/SKILL.md            # /pdf-to-images
+    upload-to-drive/SKILL.md          # /upload-to-drive — upload PNGs + captions to Drive
     wrap-up/SKILL.md                  # /wrap-up — end-of-session cleanup
 ```
 
@@ -118,6 +123,7 @@ Skill instructions here.
 | `caption` | `/caption <date_slug>` | Generate TikTok + Instagram captions + hashtags and append to the day file |
 | `export-caption` | `/export-caption <date_slug>` | Save caption + hashtags as plain text to `output/caption/` |
 | `pdf-to-images` | `/pdf-to-images <YYYY-MM-DD>` | Convert an exported Canva/Claude Design PDF to per-slide PNGs |
+| `upload-to-drive` | `/upload-to-drive <YYYY-MM-DD>` | Upload PNGs + caption txt files to Google Drive under `Content/{date}/` |
 | `wrap-up` | `/wrap-up` | End-of-session: update CLAUDE.md + README, write memory, commit and push |
 
 ## Day File Format

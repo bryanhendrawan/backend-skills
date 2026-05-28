@@ -1,3 +1,6 @@
+# Credentials — never commit
+secrets/
+
 # Generated output (produced by skills)
 output/images/
 output/caption/

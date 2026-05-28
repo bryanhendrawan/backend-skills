@@ -110,4 +110,5 @@ scripts/
 | `/generate-topics` | Propose next batch of unique topics |
 | `/pdf-to-images YYYY-MM-DD` | Convert an exported PDF into per-slide PNGs in `output/images/` |
 | `/export-caption YYYY-MM-DD_slug` | Save caption + hashtags as plain text to `output/caption/` |
+| `/upload-to-drive YYYY-MM-DD` | Upload PNGs + caption txt files to Google Drive under `Content/{date}/` |
 | `/wrap-up` | End-of-session: update docs, write memory, commit and push to GitHub |
